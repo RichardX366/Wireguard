@@ -39,11 +39,11 @@ jobs:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
           load: true
-          tags: registry.richardx.win/edbox:latest
+          tags: registry.richardx.win/wireguard:latest
           platforms: linux/arm64
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Push
-        run: docker push registry.richardx.win/edbox:latest
+        run: docker push registry.richardx.win/wireguard:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
